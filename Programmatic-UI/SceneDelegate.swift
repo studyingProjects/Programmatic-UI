@@ -3,22 +3,49 @@
 //  Programmatic-UI
 //
 //  Created by Andrei Shpartou on 28/11/2023.
-//
+//  Alex Paul youtube lessons
 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    // [Programmatic UI]
+    // iOS 13 and later now has a SceneDelegate, this is where the window property is
+    // in order to setup your programmatic UI code you must set the
+    // rootViewController property of the windows
+    // e.g. window.rootViewController = someViewController()
+    
+    // Steps in removing the default Main.storyboard file from the info.plist
+    // 1. delete the "Main storyboard" entry from the info.plist
+    // 2. delete the storyboard name value from the "Scene configuration" (general properties of the project -> Info -> ...)
+    // 3. delete the Main.storyboard file
+    // [Programmatic UI]
+    
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // [Programmatic UI]
+        // Steps in configuring programmatic UI in the SceneDelegate
+        // Steps in configuring the window property
+        // [Programmatic UI]
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        // [Programmatic UI]
+        // set up the windows's frame to take up the entire device's screen
+        // instantiating the windows with a frame
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.windowScene = windowScene
+        // window?.rootViewController = ViewController() or
+        // embedding a UIViewController in a UINavigationController
+        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        window?.makeKeyAndVisible()
+        // [Programmatic UI]
     }
-
+ 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

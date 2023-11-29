@@ -10,10 +10,18 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    // [Programmatic UI]
+    // Pre-iOS 13 the windows? property for the app was here in the AppDelegate
+    // var windows: UIWindow?
+    // [Programmatic UI]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // [Programmatic UI]
+        // Pre-iOS 13 this is where we setup our programmatic UI / view hierarchy
+        // [Programmatic UI]
+        
         return true
     }
 
